@@ -4,19 +4,25 @@ import com.personal.gallery.kafkainternals.common.KafkaSetup;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.kafka.test.context.EmbeddedKafka;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.context.web.WebAppConfiguration;
 
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
+@WebAppConfiguration
+@DirtiesContext
+@EmbeddedKafka
 class KafkaInternalsApplicationTests {
 
 	@Autowired
 	private KafkaSetup kafkaSetup;
 
 	@Test
-	void contextLoads() throws IOException {
+	void validateConfigLoading() throws IOException {
 		assertNotNull(kafkaSetup.simpleKafkaProps());
 		assertNotNull(kafkaSetup.kafkaPropsWithSerialisation());
 
