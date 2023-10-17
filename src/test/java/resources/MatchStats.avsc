@@ -1,0 +1,40 @@
+{
+  "type": "record",
+  "name": "MatchStats",
+  "namespace": "com.personal.gallery.kafkainternals.avro.pojo",
+  "fields": [
+    {
+      "name": "Innings",
+      "namespace": "com.personal.gallery.kafkainternals.avro.pojo",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "Inning",
+          "fields": [
+            {
+              "name": "battingTeam",
+              "type": "string"
+            },
+            {
+              "name": "bowlingTeam",
+              "type": "string"
+            },
+            {
+              "name": "totalRuns",
+              "type": "long"
+            },
+            {
+              "name": "totalWickets",
+              "type": "long"
+            },
+            {
+              "name": "totalOvers",
+              "type": "double"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
