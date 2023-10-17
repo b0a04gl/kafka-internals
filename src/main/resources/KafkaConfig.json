@@ -1,4 +1,23 @@
 {
+  "consumer": {
+    "auto-offset-reset": "earliest",
+    "bootstrap-servers": [
+      "localhost:9092"
+    ],
+    "group-id": "simple-consumer-local",
+    "key-deserializer": "org.apache.kafka.common.serialization.StringDeserializer",
+    "value-deserializer": "io.confluent.kafka.serializers.KafkaAvroDeserializer",
+    "max-poll-records": 500,
+    "properties": {
+      "spring.json.value.default.type": "com.personal.gallery.kafkainternals.avro.pojo.MatchStats",
+      "schema.registry.url": "http://localhost:8081"
+    }
+  },
+  "listener": {
+    "ack-mode": "MANUAL_IMMEDIATE",
+    "concurrency": 3,
+    "type": "BATCH"
+  },
   "producer": {
     "bootstrap-servers": [
       "localhost:9092"
